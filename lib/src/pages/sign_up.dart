@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import '../screens/main_screen.dart';
 import 'sigin_page.dart';
 
 class SignUpPage extends StatefulWidget{
@@ -231,7 +232,7 @@ class _SignUpPageState extends State<SignUpPage>{
         onPressed: () {
           if(formkey.currentState.validate()){
             formkey.currentState.save();
-            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>HomePage()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Home()));
           }
         },
         padding: EdgeInsets.only(right:12.0,left: 12,top: 16,bottom: 16),
@@ -239,23 +240,6 @@ class _SignUpPageState extends State<SignUpPage>{
         child: Text('ລົງທະບຽນ', style: TextStyle(color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.bold)),
       ),
     );
-
-//    return InkWell(
-//      onTap: (){
-//        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>HomePage()));
-//      },
-//      child: Container(
-//          width: MediaQuery.of(context).size.width,
-//          height: 50.0,
-//          decoration: BoxDecoration(
-//            color: Color(0xff9bca5d),
-//            borderRadius: BorderRadius.circular(30.0),
-//          ),
-//          child:Center(
-//            child:
-//            Text("Order now",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white),),)
-//      ),
-//    );
 
   }
 }
