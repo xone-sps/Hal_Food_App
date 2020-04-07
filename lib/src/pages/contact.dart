@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hal_food_app/main.dart';
-import 'package:flutter_launch/flutter_launch.dart';
+//import 'package:flutter_launch/flutter_launch.dart';
 import 'dart:async';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+//import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 class Contact extends StatefulWidget {
   @override
@@ -13,16 +13,17 @@ class Contact extends StatefulWidget {
 class _ContactPageState extends State<Contact> {
   final mainColor = (Color(0xff9bca5d));
   final mainfont = 'boonhome';
-  GoogleMapController mapController;
+//  GoogleMapController mapController;
   Future<void> _launched;
   String _phone = '020 52202014';
   String whatsapp = '020 52202014';
+  String mail = 'halfood@gmail.ccom';
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
+//  final LatLng _center = const LatLng(45.521563, -122.677433);
+//
+//  void _onMapCreated(GoogleMapController controller) {
+//    mapController = controller;
+//  }
 
 //  Completer<GoogleMapController> _controller = Completer();
 //  static const LatLng _center = const LatLng(45.521563, -122.677433);
@@ -49,7 +50,14 @@ class _ContactPageState extends State<Contact> {
       throw 'Could not launch $url';
     }
   }
-  _makeWahatsapp(String  url) async {
+  Future<void> _mailTo(String url) async {
+    if(await canLaunch((url))){
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+  _makeWhatsapp(String  url) async {
     if(await canLaunch(url)){
       await launch(url);
     } else{
@@ -63,8 +71,23 @@ class _ContactPageState extends State<Contact> {
     } else {
       throw 'Could not launch $url';
     }}
+  _youtubekURL() async {
+    const url = 'https://youtube.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }}
+  _igURL() async {
+    const url = 'https://instagram.com';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }}
+
   void whatsAppOpen() async {
-    await FlutterLaunch.launchWathsApp(phone: "5534992016545", message: "Hello");
+//    await FlutterLaunch.launchWathsApp(phone: "5534992016545", message: "Hello");
   }
 
   @override
@@ -128,7 +151,6 @@ class _ContactPageState extends State<Contact> {
                     child: InkWell(
                       onTap: (){
                         _launched = _makePhoneCall('tel:$_phone');
-                        print("hello");
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,7 +168,8 @@ class _ContactPageState extends State<Contact> {
                 Divider(height: 10.0),
                 InkWell(
                   onTap: () {
-                    whatsAppOpen();
+                    _launched = _makeWhatsapp('whatsapp:$whatsapp');
+//                    whatsAppOpen();
                     print("hello whatsapp");
                   },
                   child: Padding(
@@ -181,11 +204,23 @@ class _ContactPageState extends State<Contact> {
                         },
                         child: FaIcon(FontAwesomeIcons.facebook,size: 42.0,)),
                     SizedBox(width: 20.0,),
-                    FaIcon(FontAwesomeIcons.envelope,size: 42.0,),
+                    InkWell(
+                        onTap: (){
+                          _launched = _mailTo('mailto:$mail');
+                        },
+                        child: FaIcon(FontAwesomeIcons.envelope,size: 42.0,)),
                     SizedBox(width: 20.0,),
-                    FaIcon(FontAwesomeIcons.youtube,size: 42.0,),
+                    InkWell(
+                        onTap: (){
+                          _youtubekURL();
+                        },
+                        child: FaIcon(FontAwesomeIcons.youtube,size: 42.0,)),
                     SizedBox(width: 20.0,),
-                    FaIcon(FontAwesomeIcons.instagram,size: 42.0,),
+                    InkWell(
+                        onTap: (){
+                          _igURL();
+                        },
+                        child: FaIcon(FontAwesomeIcons.instagram,size: 42.0,)),
                   ],
                 ),
                 Divider(height: 10.0),
