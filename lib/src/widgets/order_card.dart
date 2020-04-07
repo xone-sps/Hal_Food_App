@@ -27,7 +27,7 @@ class OrderCard extends StatefulWidget {
 }
 
 class _HomePageState extends State<OrderCard> {
-  int amount = 0;
+  int amount = 1;
 
   void AddAmount() {
     setState(() {

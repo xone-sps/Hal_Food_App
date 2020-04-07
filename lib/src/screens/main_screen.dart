@@ -67,7 +67,7 @@ class _MainScreenState extends State<Home> {
                   children: <Widget>[
                     Text(
                       "ສົ່ງທົ່ວປະເທດ",
-                      style: TextStyle(fontSize: 24.0, color: mainColor),
+                      style: TextStyle(fontSize: 26.0, color: mainColor,fontFamily: 'boonhome'),
                     ),
                   ]),
               actions: <Widget>[ChekcoutButton()],
@@ -101,7 +101,7 @@ class _MainScreenState extends State<Home> {
     return IconButton(
       padding: EdgeInsets.only(right: 10.0),
       icon: Icon(
-        Icons.shopping_cart,
+        Icons.notifications,
         color: mainColor,
       ),
       onPressed: () {

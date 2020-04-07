@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hal_food_app/main.dart';
 import '../widgets/order_card.dart';
 import 'sigin_page.dart';
 //import 'package:hal_food/src/pages/sigin_page.dart';
@@ -9,12 +10,13 @@ class OrderPage extends StatefulWidget{
 }
 class _OrderPageState extends State<OrderPage>{
   int amount;
+  final mainfont='boonhome';
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("ລາຍການສັ່ງຊື້",style: TextStyle(color: Colors.white),),
+        title: Text("ລາຍການສັ່ງຊື້",style: TextStyle(color: Colors.white,fontFamily: mainfont),),
         centerTitle: true,
         backgroundColor: Color(0xff9bca5d),
       ),
@@ -43,23 +45,23 @@ class _OrderPageState extends State<OrderPage>{
          Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text("ລວມລາຄາໃນລາຍການ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
-            Text("3,000 ₭ ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            Text("ລວມລາຄາໃນລາຍການ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey,fontFamily: mainfont),),
+            Text("3,000 ₭ ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontFamily: mainfont),),
           ],
          ),
           SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("ສ່ວນຫຼຸດ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
-              Text("3,0 ₭ ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+              Text("ສ່ວນຫຼຸດ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey,fontFamily: mainfont),),
+              Text("3,0 ₭ ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontFamily: mainfont),),
             ],
           ),
           SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("ອາກອນ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
+              Text("ອາກອນ",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey,fontFamily: mainfont),),
               Text("2,0 ₭",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
             ],
           ),

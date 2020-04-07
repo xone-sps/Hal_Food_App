@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hal_food_app/main.dart';
 import '../screens/main_screen.dart';
 import 'sign_up.dart';
 
@@ -9,13 +11,22 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool _togleVisibility = true;
-  String emailString, passwordString;
+  final mainfont = 'boonhome';
+  String phoneString, passwordString;
   final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       resizeToAvoidBottomPadding: false,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        title: Text(
+          "ເຂົ້າສູ່ລະບົບ",
+          style: TextStyle(fontFamily: mainfont, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
@@ -26,98 +37,112 @@ class _SignInPageState extends State<SignInPage> {
               width: 70.0,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/hal_food.jpg"),
+                    image: AssetImage("assets/images/hal_food.png"),
                     fit: BoxFit.cover,
                   ),
-                  borderRadius: BorderRadius.circular(48.0),
+                  borderRadius: BorderRadius.circular(8.0),
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 2.0,
-                        offset: Offset(2.0, 2.0))
+                        color: Color(0xff9bca5d),
+                        blurRadius: 1.0,
+                        offset: Offset(1.0, 1.0))
                   ]),
             ),
-            Text(
-              "ເຂົ້າສູ່ລະບົບ",
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+            SizedBox(
+              height: 4.0,
             ),
-            SizedBox(height: 10.0),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 40.0, bottom: 20.0, right: 20.0, left: 20.0),
-                child: Form(
-                  key: formkey,
-                  child: Column(
-                    children: <Widget>[
-                      EmailTextFiled(),
-                      SizedBox(height: 10.0),
-                      PasswordTextFiled(),
-                      SizedBox(height: 16.0),
-                      SignInButton(),
-                      Text(
-                        "ຫຼືເຂົ້າສູ່ລະບົບ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16.0),
-                      ),
-                      FbSignInButton(),
-                      Divider(height: 20.0),
-                      Row(
-                        children: <Widget>[
-                          Text("ຍັງຍໍທັນມີບັນຊີ ?"),
-                          SizedBox(width: 10.0),
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SignUpPage()));
-                              },
-                              child: Text(
-                                "ລົງທະບຽນ",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff9bca5d),
-                                    fontSize: 16.0),
-                              )),
-                        ],
-                      )
-                    ],
-                  ),
+            Text(
+              "HAL Food",
+              style: TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: mainfont),
+            ),
+            Text(
+              "ເພາະທຸກຄຳມີຄວາມໝາຍ",
+              style: TextStyle(fontSize: 14.0, fontFamily: mainfont),
+            ),
+//            SizedBox(height: 10.0),
+            Divider(color: Color(0xff9bca5d),),
+//            Card(
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 20.0, bottom: 20.0, right: 20.0, left: 20.0),
+              child: Form(
+                key: formkey,
+                child: Column(
+                  children: <Widget>[
+                    PhoneTextFiled(),
+                    SizedBox(height: 10.0),
+                    PasswordTextFiled(),
+                    SizedBox(height: 16.0),
+                    SignInButton(),
+                    Text(
+                      "ຫຼື ເຂົ້າສູ່ລະບົບຜ່ານ",
+                      style: TextStyle(fontSize: 16.0, fontFamily: mainfont),
+                    ),
+                    FbSignInButton(),
+                    Divider(color: Color(0xff9bca5d),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "ຍັງບໍມີບັນຊີ ?",
+                          style: TextStyle(fontFamily: mainfont),
+                        ),
+                        SizedBox(width: 10.0),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      SignUpPage()));
+                            },
+                            child: Text(
+                              "ລົງທະບຽນ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff9bca5d),
+                                  fontSize: 16.0,
+                                  fontFamily: mainfont),
+                            )),
+                            SizedBox(width: 80.0,),
+                            GestureDetector(
+                                onTap: () {
+//                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignUpPage()));
+                                },
+                                child: Text(
+                                  "ລືມລະຫັດຜ່ານ ?",
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      color: Color(0xff9bca5d),
+                                      fontFamily: mainfont),
+                                ))
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                GestureDetector(
-                    onTap: () {
-//                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignUpPage()));
-                    },
-                    child: Text(
-                      "ລືມລະຫັດຜ່ານ ?",
-                      style:
-                          TextStyle(fontSize: 14.0, color: Color(0xff9bca5d)),
-                    ))
-              ],
-            )
+//            ),
           ],
         ),
       ),
     );
   }
 
-  Widget EmailTextFiled() {
+  Widget PhoneTextFiled() {
     return TextFormField(
-      keyboardType: TextInputType.emailAddress,
+      style: TextStyle(fontFamily: mainfont),
+      keyboardType: TextInputType.phone,
       autofocus: true,
       decoration: InputDecoration(
-        labelText: 'ອີເມວ',
-        labelStyle: TextStyle(fontSize: 14.0, color: Color(0xff9bca5d)),
+        labelText: 'ເບີໂທ',
+        labelStyle: TextStyle(fontSize: 18.0, color: Color(0xff9bca5d)),
         prefixIcon: Icon(
-          Icons.mail,
+          Icons.phone,
           color: Color(0xff9bca5d),
         ),
-        hintText: 'ອີເມວ',
+        hintText: 'ເບີໂທ',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6.0),
@@ -125,23 +150,25 @@ class _SignInPageState extends State<SignInPage> {
         ),
       ),
       validator: (String value) {
-        if (!((value.contains('@')) && (value.contains('.')))) {
-          return 'ກາລຸນາພິມ ອີເມວໃຫ້ຖືກຕ້ອງ. Ex: email@gmail.com';
+        if (value.isEmpty) {
+          return 'ກາລຸນາປ້ອນເບີໂທລະສັບ';
         } else {
           return null;
         }
       },
       onSaved: (String value) {
-        emailString = value.trim();
+        phoneString = value.trim();
       },
     );
   }
 
   Widget PasswordTextFiled() {
     return TextFormField(
+      style: TextStyle(fontFamily: mainfont),
       autofocus: false,
       obscureText: _togleVisibility,
       decoration: InputDecoration(
+          labelStyle: TextStyle(fontSize: 18.0, color: Color(0xff9bca5d)),
           labelText: 'ລະຫັດຜ່ານ',
           prefixIcon: Icon(
             Icons.lock,
@@ -203,42 +230,34 @@ class _SignInPageState extends State<SignInPage> {
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
-                fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.bold,
+                fontFamily: mainfont)),
       ),
     );
   }
 
   Widget FbSignInButton() {
-//        return InkWell(
-//      onTap: (){
-//        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>HomePage()));
-//      },
-//      child: Container(
-//          width: MediaQuery.of(context).size.width,
-//          height: 50.0,
-//          decoration: BoxDecoration(
-//            color: Color(0xff9bca5d),
-//            borderRadius: BorderRadius.circular(30.0),
-//          ),
-//          child:Center(
-//            child:
-//            Text("Facebook",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0,color: Colors.white),),)
-//      ),
-//    );
-
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: EdgeInsets.symmetric(vertical: 12.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(6.0),
         ),
         onPressed: () {},
-        padding: EdgeInsets.only(right: 12.0, left: 12, top: 16, bottom: 16),
+        padding: EdgeInsets.only(right: 12.0, left: 12, top: 12, bottom: 12),
         color: Color(0xff3a559f),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            FaIcon(
+              FontAwesomeIcons.facebookSquare,
+              color: Colors.white,
+              size: 32.0,
+            ),
+            SizedBox(
+              width: 20.0,
+            ),
             Text('Facebook',
                 style: TextStyle(
                     color: Colors.white,
@@ -246,8 +265,6 @@ class _SignInPageState extends State<SignInPage> {
                     fontWeight: FontWeight.bold)),
           ],
         ),
-//            child: Text('Facebook', style: TextStyle(color: Colors.white,fontSize: 18.0,fontWeight: FontWeight.bold)),
-//            Icon(Icons.add),
       ),
     );
   }

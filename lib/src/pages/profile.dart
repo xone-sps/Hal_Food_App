@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hal_food_app/main.dart';
 import 'order_page.dart';
 import '../widgets/custom_list_profile.dart';
+import 'edit_profile.dart';
 
 class Profile extends StatefulWidget {
 //  const FoodDetail({ Key key, this.food }) : super(key: key);
@@ -12,6 +14,7 @@ class _ProfilePageState extends State<Profile> {
   final mainColor = (Color(0xff9bca5d));
   bool turnAppNotification = false;
   bool turnOnTracking = false;
+  final mainfont='boonhome';
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -24,7 +27,7 @@ class _ProfilePageState extends State<Profile> {
             children: <Widget>[
               Text(
                 "Profile",
-                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
               ),
               SizedBox(
                 height: 20.0,
@@ -56,30 +59,34 @@ class _ProfilePageState extends State<Profile> {
                       Text(
                         "Xone Sengphosy",
                         style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                            fontSize: 18.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
                       Text(
                         "020 52202014",
-                        style: TextStyle(fontSize: 16.0),
+                        style: TextStyle(fontSize: 16.0,fontFamily: mainfont),
                       ),
                       SizedBox(
                         height: 15.0,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) => EditProfile()
+                          ));
+                        },
                         child: Container(
                           width: 60.0,
                           height: 25.0,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
+                              borderRadius: BorderRadius.circular(6.0),
                               border: Border.all(color: mainColor)),
                           child: Center(
                               child: Text(
                             "Edit",
-                            style: TextStyle(fontSize: 16.0, color: mainColor),
+                            style: TextStyle(fontSize: 16.0, color: mainColor,fontFamily: mainfont),
                           )),
                         ),
                       )
@@ -92,7 +99,7 @@ class _ProfilePageState extends State<Profile> {
               ),
               Text(
                 "Account",
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
               ),
               SizedBox(
                 height: 10.0,
@@ -154,7 +161,7 @@ class _ProfilePageState extends State<Profile> {
               ),
               Text(
                 "Notification ",
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
               ),
               SizedBox(
                 height: 20.0,
@@ -170,7 +177,7 @@ class _ProfilePageState extends State<Profile> {
                         children: <Widget>[
                           Text(
                             "App Notification",
-                            style: TextStyle(fontSize: 16.0),
+                            style: TextStyle(fontSize: 16.0,fontFamily: mainfont),
                           ),
                           Switch(
                             activeColor: mainColor,
@@ -189,7 +196,7 @@ class _ProfilePageState extends State<Profile> {
                         children: <Widget>[
                           Text(
                             "Location tracking",
-                            style: TextStyle(fontSize: 16.0),
+                            style: TextStyle(fontSize: 16.0,fontFamily: mainfont),
                           ),
                           Switch(
                             activeColor: mainColor,
@@ -212,29 +219,4 @@ class _ProfilePageState extends State<Profile> {
       ),
     );
   }
-//
-//  Widget ProfileDetail (){
-//    return Container(
-//      child: Column(
-//        children: <Widget>[
-//          Padding(
-//            padding: EdgeInsets.only(bottom:5.0),
-//            child: Card(
-//              child: Padding(
-//                padding: EdgeInsets.all(15.5),
-//                child: (
-//                    Row(
-//                      mainAxisAlignment: MainAxisAlignment.center,
-//                      children: <Widget>[
-//                        Text("Xone Sengphbosy",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-//                      ],
-//                    )
-//                ),
-//              ),
-//            ),
-//          )
-//        ],
-//      ),
-//    );
-//  }
 }

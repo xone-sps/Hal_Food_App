@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hal_food_app/main.dart';
 import 'package:hal_food_app/src/models/food.dart';
+import 'package:hal_food_app/src/widgets/small_button.dart';
 import '../widgets/search.dart';
 import '../widgets/food_category.dart';
 import '../widgets/popular_food.dart';
 import 'food_dedail.dart';
+import 'all_food.dart';
 //import food data
 import '../data/food_data.dart';
 
@@ -48,12 +50,24 @@ class _HomePageState extends State<HomePage> {
                 "ອາຫານທີ່ຍອດນິຍົມ",
                 style: primayStyle,
               ),
-              InkWell(
-                  onTap: () {},
-                  child: Text(
-                    "View all",
-                    style: TextStyle(color: mainColor, fontSize: 16.0),
-                  )),
+//              InkWell(
+//                  onTap: () {
+//                    Navigator.of(context).push(MaterialPageRoute(
+//                        builder: (BuildContext context) => AllFood()));
+//                  },
+//                  child: Text(
+//                    "View all",
+//                    style: TextStyle(color: mainColor, fontSize: 16.0),
+//                  )),
+              OutlineButton(
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => AllFood()));
+                },
+                child: Text('View all',style: TextStyle(color: mainColor, fontSize: 16.0)),
+                color: Color(0xff9bca5d),
+                splashColor:Color(0xff9bca5d) ,
+              )
             ],
           ),
           SizedBox(height: 10.0),

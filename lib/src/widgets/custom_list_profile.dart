@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
 
-class ProfileList extends StatelessWidget{
+class ProfileList extends StatelessWidget {
   final IconData icon;
   final String title;
-  ProfileList({this.icon,this.title});
+  ProfileList({this.icon, this.title});
   final mainColor = (Color(0xff9bca5d));
+  final mainfont = 'boonhome';
   @override
-Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     // TODO: implement build
-    return  Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         children: <Widget>[
-          Icon(icon,color: mainColor,),
-          SizedBox(width: 15.0,),
-          Text(title),
+          Icon(
+            icon,
+            color: mainColor,
+          ),
+          SizedBox(
+            width: 15.0,
+          ),
+          Text(
+            title,
+            style: TextStyle(fontFamily: mainfont),
+          ),
         ],
       ),
     );
-}}
+  }
+}
