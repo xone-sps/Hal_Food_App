@@ -8,7 +8,7 @@ import '../models/category.dart';
 import 'category_card.dart';
 import '../pages/category_detail.dart';
 class FoodCategory extends StatelessWidget{
-  final List<Category> _categories =categories;
+  final List<Category> _categories = categories;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,6 +16,7 @@ class FoodCategory extends StatelessWidget{
       height: 100.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal ,
+          physics: BouncingScrollPhysics(),
         itemCount: _categories.length,
         itemBuilder: (BuildContext context, int index){
           return InkWell(

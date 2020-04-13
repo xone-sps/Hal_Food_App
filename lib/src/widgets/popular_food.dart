@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import '../models/food.dart';
 
 class PopularFoods extends StatefulWidget{
+//  final Food food;
+//  PopularFoods({this.food});
+
   final int id;
   final String name;
   final String imagePath;
@@ -15,6 +19,7 @@ class PopularFoods extends StatefulWidget{
 }
 
 class _PopularFoodState extends State<PopularFoods>{
+//  Food get food => widget.foods;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -25,7 +30,19 @@ class _PopularFoodState extends State<PopularFoods>{
           Container(
             width: 540.0,
             height: 200.0,
-            child: Image.asset(widget.imagePath,fit: BoxFit.cover),
+            child: Image.network(
+                widget.imagePath,
+//              fit: BoxFit.cover,
+              fit: BoxFit.fill,
+              loadingBuilder: (context, Widget child, ImageChunkEvent progress) {
+                if (progress == null) return child;
+                return Padding(
+                    padding: EdgeInsets.all(50),
+                    child: CircularProgressIndicator(
+                      value: progress.expectedTotalBytes != null ? progress.cumulativeBytesLoaded / progress.expectedTotalBytes : null,
+                    ));
+              },
+            ),
           ),
           Positioned(
             left: 0.0,

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hal_food_app/main.dart';
+import 'package:hal_food_app/src/pages/explore.dart';
 import '../pages/home.dart';
 import '../pages/order_page.dart';
 import '../pages/profile.dart';
 import '../pages/contact.dart';
-import '../widgets/search.dart';
+import 'package:hal_food_app/src/constant/color.dart';
+import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,18 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _MainScreenState extends State<Home> {
-  final mainStyle = TextStyle(
-      fontSize: 28.0,
-      fontWeight: FontWeight.bold,
-      color: Color(0xff9bca5d),
-      fontFamily: 'boonhome');
-  final primayStyle = TextStyle(
-      fontSize: 22.0,
-      fontWeight: FontWeight.bold,
-      color: Color(0xff9bca5d),
-      fontFamily: 'boonhome');
-  final mainColor = Color(0xff9bca5d);
-
   List<Widget> pages;
   Widget currentPage;
 
@@ -31,6 +22,7 @@ class _MainScreenState extends State<Home> {
   OrderPage orderPage;
   Contact contactPage;
   Profile profilePage;
+  Explore explorePage;
 
   @override
   void initState() {
@@ -40,6 +32,7 @@ class _MainScreenState extends State<Home> {
     orderPage = OrderPage();
     contactPage = Contact();
     profilePage = Profile();
+    explorePage = Explore();
     pages = [homePage, orderPage, contactPage, profilePage];
     currentPage = homePage;
   }
@@ -47,16 +40,22 @@ class _MainScreenState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: mainColor)); //set color status bar
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: currentTabIndex == 0
           ? AppBar(
-              backgroundColor: Colors.white,
+              backgroundColor: mainColor,
+              brightness: Brightness.light,
               leading: Padding(
                 padding: EdgeInsets.only(left: 12),
                 child: IconButton(
                   icon: Icon(
                     Icons.menu,
-                    color: mainColor,
+                    color: secondColor,
                     size: 32.0,
                   ),
                   onPressed: () {},
@@ -67,7 +66,10 @@ class _MainScreenState extends State<Home> {
                   children: <Widget>[
                     Text(
                       "ສົ່ງທົ່ວປະເທດ",
-                      style: TextStyle(fontSize: 26.0, color: mainColor,fontFamily: 'boonhome'),
+                      style: TextStyle(
+                          fontSize: 26.0,
+                          color: secondColor,
+                          fontFamily: mainfont),
                     ),
                   ]),
               actions: <Widget>[ChekcoutButton()],
@@ -85,6 +87,7 @@ class _MainScreenState extends State<Home> {
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
+//          BottomNavigationBarItem(icon: Icon(Icons.explore), title: Text("Explore")),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart), title: Text("Cart")),
           BottomNavigationBarItem(
@@ -98,15 +101,27 @@ class _MainScreenState extends State<Home> {
   }
 
   Widget ChekcoutButton() {
-    return IconButton(
-      padding: EdgeInsets.only(right: 10.0),
-      icon: Icon(
-        Icons.notifications,
-        color: mainColor,
-      ),
-      onPressed: () {
-        print('you click checkout');
-      },
+    return Stack(
+      children: <Widget>[
+        IconButton(
+            icon: Icon(
+              Icons.notifications,
+              color: secondColor,
+            ),
+            onPressed: () {}),
+        Positioned(
+          right: 8,
+          child: Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(4),
+            decoration: BoxDecoration(shape: BoxShape.circle, color: yello),
+            child: Text(
+              '3',
+              style: TextStyle(fontSize: 12, color: Colors.black),
+            ),
+          ),
+        ),
+      ],
     );
   }
 

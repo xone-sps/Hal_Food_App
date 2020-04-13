@@ -43,6 +43,56 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  initialValue: '020 52202014',
+                  decoration: InputDecoration(
+                      labelText: 'Phone number',
+                      border: OutlineInputBorder()
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  initialValue: '020 52202014',
+                  decoration: InputDecoration(
+                      labelText: 'Phone number',
+                      border: OutlineInputBorder()
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  initialValue: '020 52202014',
+                  decoration: InputDecoration(
+                      labelText: 'Phone number',
+                      border: OutlineInputBorder()
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  initialValue: '020 52202014',
+                  decoration: InputDecoration(
+                      labelText: 'Phone number',
+                      border: OutlineInputBorder()
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  initialValue: '020 52202014',
+                  decoration: InputDecoration(
+                      labelText: 'Phone number',
+                      border: OutlineInputBorder()
+                  ),
+                ),
+                SizedBox(
                   height: 30,
                 ),
                 UpdateProfile(),

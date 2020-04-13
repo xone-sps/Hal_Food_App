@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hal_food_app/main.dart';
+import 'package:hal_food_app/src/constant/color.dart';
 //import 'package:flutter_launch/flutter_launch.dart';
 import 'dart:async';
 //import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -11,32 +12,11 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactPageState extends State<Contact> {
-  final mainColor = (Color(0xff9bca5d));
-  final mainfont = 'boonhome';
 //  GoogleMapController mapController;
   Future<void> _launched;
   String _phone = '020 52202014';
   String whatsapp = '020 52202014';
   String mail = 'halfood@gmail.ccom';
-
-//  final LatLng _center = const LatLng(45.521563, -122.677433);
-//
-//  void _onMapCreated(GoogleMapController controller) {
-//    mapController = controller;
-//  }
-
-//  Completer<GoogleMapController> _controller = Completer();
-//  static const LatLng _center = const LatLng(45.521563, -122.677433);
-//  final Set<Marker>_markers = {};
-//  LatLng _lastMapPostision = _center;
-//  MapType _currentMapType = MapType.normal;
-//
-//  _onMapCreated(GoogleMapController controller){
-//    _controller.complete(controller);
-//  }
-//  _onCameraMove(CameraPosition position){
-//    _lastMapPostision = position.target;
-//  }
   @override
   initState() {
     super.initState();
@@ -93,6 +73,7 @@ class _ContactPageState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: mainColor));
     return Scaffold(
       appBar: AppBar(
         title: Text(

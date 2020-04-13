@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hal_food_app/main.dart';
-import 'order_page.dart';
+import 'package:flutter/services.dart';
+import 'package:hal_food_app/src/constant/color.dart';
 import '../widgets/custom_list_profile.dart';
 import 'edit_profile.dart';
 
@@ -14,10 +14,10 @@ class _ProfilePageState extends State<Profile> {
   final mainColor = (Color(0xff9bca5d));
   bool turnAppNotification = false;
   bool turnOnTracking = false;
-  final mainfont='boonhome';
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: secondColor));
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

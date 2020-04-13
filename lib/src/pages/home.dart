@@ -7,8 +7,10 @@ import '../widgets/food_category.dart';
 import '../widgets/popular_food.dart';
 import 'food_dedail.dart';
 import 'all_food.dart';
+import 'package:hal_food_app/src/constant/color.dart';
 //import food data
 import '../data/food_data.dart';
+//import '../models/food.dart';
 
 class HomePage extends StatefulWidget {
 //  List<Foods> _foods =foods;
@@ -17,32 +19,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final mainStyle = TextStyle(
-      fontSize: 28.0,
-      fontWeight: FontWeight.bold,
-      color: Color(0xff9bca5d),
-      fontFamily: 'boonhome');
-  final primayStyle = TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-      color: Color(0xff030303),
-      fontFamily: 'boonhome');
-  final mainColor = (Color(0xff9bca5d));
-  final black = (Color(0xff000000));
-  int currentTabIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+        padding: EdgeInsets.only( top: 10.0, left: 20.0, right: 20.0 ),
         children: <Widget>[
-          Search(),
-          Text("ໝວດໝູ່ອາຫານ", style: primayStyle),
-          SizedBox(height: 10.0),
+          Search( ),
+          Text( "ໝວດໝູ່ອາຫານ", style: primayStyle ),
+          SizedBox( height: 10.0 ),
 //          food category section
-          FoodCategory(),
+          FoodCategory( ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -60,20 +48,21 @@ class _HomePageState extends State<HomePage> {
 //                    style: TextStyle(color: mainColor, fontSize: 16.0),
 //                  )),
               OutlineButton(
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => AllFood()));
+                onPressed: () {
+                  Navigator.of( context ).push( MaterialPageRoute(
+                      builder: (BuildContext context) => AllFood( ) ) );
                 },
-                child: Text('View all',style: TextStyle(color: mainColor, fontSize: 16.0)),
-                color: Color(0xff9bca5d),
-                splashColor:Color(0xff9bca5d) ,
+                child: Text( 'View all',
+                    style: TextStyle( color: mainColor, fontSize: 16.0 ) ),
+                color: Color( 0xff9bca5d ),
+                splashColor: Color( 0xff9bca5d ),
               )
             ],
           ),
-          SizedBox(height: 10.0),
+          SizedBox( height: 10.0 ),
 //            popular food section
           Column(
-            children: foods.map(FoodItem).toList(),
+            children: foods.map( FoodItem ).toList( ),
           ),
 //          getWidget()
         ],
@@ -83,7 +72,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget ChekcoutButton() {
     return IconButton(
-      padding: EdgeInsets.only(left: 20.0),
+      padding: EdgeInsets.only( left: 20.0 ),
       icon: Icon(
         Icons.shopping_cart,
         color: mainColor,
@@ -101,12 +90,13 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {},
     );
   }
+
 //  Food item style and list
 
-  List<Row> getWidget(Foods food) {
-    List<Row> list = new List<Row>();
+  List<Row> getWidget(Food food) {
+    List<Row> list = new List<Row>( );
     for (var i = 0; i < foods.length - 1; i += 2) {
-      list.add(Row(
+      list.add( Row(
         children: <Widget>[
           PopularFoods(
             id: food.id,
@@ -116,17 +106,17 @@ class _HomePageState extends State<HomePage> {
             category: food.category,
           )
         ],
-      ));
+      ) );
     }
   }
 
-  Widget FoodItem(Foods food) {
+  Widget FoodItem(Food food) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20.0),
+      margin: EdgeInsets.only( bottom: 20.0 ),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => FoodDetail()));
+          Navigator.of( context ).push( MaterialPageRoute(
+              builder: (BuildContext context) => FoodDetail( ) ) );
         },
         child: PopularFoods(
           id: food.id,

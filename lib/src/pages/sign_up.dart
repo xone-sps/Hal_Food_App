@@ -18,7 +18,6 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -29,6 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
       body: Center(
         child: SingleChildScrollView(
+          padding: const EdgeInsets.only(right:8.0,left: 8.0,top: 20.0,bottom: 8.0),
           child:Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -116,6 +116,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
         ),
       ),
+
+
     );
   }
 
@@ -284,11 +286,14 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget SignInButton() {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      width: MediaQuery
+          .of( context )
+          .size
+          .width,
+      padding: EdgeInsets.symmetric( vertical: 16.0 ),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular( 6 ),
         ),
         onPressed: () {
           if (formkey.currentState.validate()) {
@@ -297,15 +302,14 @@ class _SignUpPageState extends State<SignUpPage> {
                 MaterialPageRoute(builder: (BuildContext context) => Home()));
           }
         },
-        padding: EdgeInsets.only(right: 12.0, left: 12, top: 16, bottom: 16),
-        color: Color(0xff9bca5d),
-        child: Text('ລົງທະບຽນ',
+        padding: EdgeInsets.only( right: 12.0, left: 12, top: 16, bottom: 16 ),
+        color: Color( 0xff9bca5d ),
+        child: Text( 'ລົງທະບຽນ',
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'boonhome')),
+                fontFamily: 'boonhome' ) ),
       ),
     );
-  }
-}
+  }}
