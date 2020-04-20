@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -13,12 +12,13 @@ class FoodCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      width: 80.0,
+      width: 100.0,
+//      height: MediaQuery.of(context).size.width * 0.2,
 //      color: Color(0xff9bca5d),
 //      margin: EdgeInsets.only(right: 4.0),
 //      child: Card(
       child: Padding(
-        padding: const EdgeInsets.all(6.0),
+        padding: const EdgeInsets.all(2.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -30,7 +30,7 @@ class FoodCard extends StatelessWidget {
                     image: NetworkImage(imagePath),
                     fit: BoxFit.cover,
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(6.0),
                   boxShadow: [
                     BoxShadow(
                         color: Colors.grey,
@@ -41,22 +41,19 @@ class FoodCard extends StatelessWidget {
             SizedBox(
               height: 5.0,
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    categoryName,
-                    style: TextStyle(fontSize: 10.0),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(("($numberOfitem)"),
-                      style:
-                          TextStyle(fontSize: 10.0, color: Color(0xff9bca5d))),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  categoryName,
+                  style: TextStyle(fontSize: 12.0),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(("($numberOfitem)"),
+                    style: TextStyle(fontSize: 12.0, color: Color(0xff9bca5d))),
 //      Text("($numberOfitem) ອັນ",style: TextStyle(fontSize: 10.0,color: Colors.green )),
-                ],
-              ),
+              ],
             ),
           ],
         ),

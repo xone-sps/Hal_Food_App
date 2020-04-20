@@ -48,7 +48,7 @@ class _PopularFoodState extends State<PopularFoods>{
             left: 0.0,
             bottom: 0.0,
             child: Container(
-              width: 360.0,
+              width: MediaQuery.of(context).size.width,
             height: 60.0,
               decoration: BoxDecoration(
                 gradient: LinearGradient(

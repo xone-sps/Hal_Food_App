@@ -6,32 +6,26 @@ import 'package:provider/provider.dart';
 import 'package:hal_food_app/src/models/cart_model.dart';
 import 'package:flutter/services.dart';
 
-//class Food {
-//  const Food(this.index, this.title, this.price, this.color);
-//  final int index;
-//  final String title;
-//  final int price;
-//  final MaterialColor color;
-//}
-//const List<Food> allFood = <Food>[
-//  Food(0, 'Home', 2000, Colors.teal),
-//  Food(1, 'Business', 3000, Colors.cyan),
-//  Food(2, 'School', 4000, Colors.orange),
-//  Food(3, 'Flight', 5000, Colors.blue)
-//];
-
 class FoodDetail extends StatefulWidget {
-//  const FoodDetail({ Key key, this.food }) : super(key: key);
-
-//  final Food food;
-//  FoodCard(this.food);
-
   @override
   _FoodDetailState createState() => _FoodDetailState();
 }
 
 class _FoodDetailState extends State<FoodDetail> {
-//  Food get food => widget.food;
+//  final String image;
+  final List<String> extra = ['Extra 1', 'Extra 2', 'Extra 3', 'Extra 3'];
+  final List<String> des_extra = [
+    'Description of extar detail 1',
+    'Description of extar detail 2',
+    'Description of extar detail 3',
+    'Description of extar detail 4'
+  ];
+  final List<String> price = ['15,000', '20,000', '18,000', '12,000'];
+  final String desc =
+      'I recently lost my job and don\'t have enough time or money to tend to Bo anymore. I have a lot of health issues that need attention...';
+
+//  FoodDetail(this.image);
+
   showCart() {
     showModalBottomSheet(
       shape: roundedRectangle32,
@@ -46,35 +40,69 @@ class _FoodDetailState extends State<FoodDetail> {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: mainColor));
     return Scaffold(
-//      backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: secondColor),
-          title: Text(
-            "ລາຍລະອຽດເມນູ",
-            style: TextStyle(color: Colors.white, fontFamily: mainfont),
-          ),
-          centerTitle: true,
-          backgroundColor: Color(0xff9bca5d),
-          elevation: 0.0,
-          actions: <Widget>[
-            buildCart(),
-            SizedBox(
-              width: 8,
-            )
-          ],
-        ),
-        body: new Container(
-          color: Colors.white,
-//          buildAppBar(),
-          child: Column(
+      body: SafeArea(
+        top: false,
+        bottom: false,
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 250.0,
+                floating: false,
+                pinned: true,
+                elevation: 0.0,
+                iconTheme: IconThemeData(color: secondColor),
+                title: Text(
+                  "ລາຍລະອຽດເມນູ",
+                  style: TextStyle(color: Colors.white, fontFamily: mainfont),
+                ),
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Image.network(
+                    'https://img.wongnai.com/p/1600x0/2019/06/29/5050cd38141c40fb88945e091196eda2.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                actions: <Widget>[buildCart()],
+              )
+            ];
+          },
+          body: ListView(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
             children: <Widget>[
-              ImageFoodDetail(),
-              FoodCardDetail(),
-              FoodCardDetail(),
-              FoodCardDetail(),
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, right: 20.0, top: 5.0, bottom: 15.0),
+                    child: Text(
+                      desc,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: Text('Extra menu',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontFamily: 'Montserrat',
+                            fontSize: 20.0)),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    child: FoodCardDetail(),
+                  )
+                ],
+              )
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   Widget ImageFoodDetail() {
@@ -114,7 +142,7 @@ class _FoodDetailState extends State<FoodDetail> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                  "Menu name",
+                                  'Menu name',
                                   style: TextStyle(
                                       fontFamily: mainfont,
                                       fontSize: 16,
@@ -125,20 +153,8 @@ class _FoodDetailState extends State<FoodDetail> {
                                   style: TextStyle(
                                       fontFamily: mainfont,
                                       color: mainColor,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Card(
-                                  margin: EdgeInsets.only(right: 15),
-                                  shape: roundedRectangle,
-                                  color: Color(0xff9bca5d),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colors.white,
-                                    ),
-                                    customBorder: roundedRectangle,
-                                  ),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
                                 ),
                               ],
                             ),
@@ -176,30 +192,33 @@ class _FoodDetailState extends State<FoodDetail> {
   }
 
   Widget buildCart() {
-    return Stack(
-      children: <Widget>[
-        IconButton(
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => OrderPage()));
-            }),
-        Positioned(
-          right: 0,
-          child: Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(4),
-            decoration: BoxDecoration(shape: BoxShape.circle, color: yello),
-            child: Text(
-              '3',
-              style: TextStyle(fontSize: 12, color: Colors.black),
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+      child: Stack(
+        children: <Widget>[
+          IconButton(
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => OrderPage()));
+              }),
+          Positioned(
+            right: 0,
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: yello),
+              child: Text(
+                '3',
+                style: TextStyle(fontSize: 12, color: Colors.black),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -250,4 +269,5 @@ class _FoodDetailState extends State<FoodDetail> {
 //    CartModel cartModel = CartModel(food: food, quantity: 1);
 //    Provider.of<Cart>(context).addItem(cartModel);
 //  }
+
 }

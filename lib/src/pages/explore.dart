@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hal_food_app/src/pages/order_page.dart';
 import '../constant/color.dart';
 import '../models/cart_model.dart';
 import '../models/food_model.dart';
 import '../widgets/cart_buttom_sheet.dart';
 import '../widgets/food_card.dart';
-import 'package:hal_food_app/src/pages/checkout_page.dart';
 import 'package:provider/provider.dart';
-import '../models/cart_model.dart';
 
 class Explore extends StatefulWidget {
   @override
@@ -26,13 +25,14 @@ class _MyHomePageState extends State<Explore> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+        margin: EdgeInsets.only(top: 40, bottom: 10,left: 8,right: 8),
         child: Column(
           children: <Widget>[
 //            buildAppBar(),
-            buildFoodFilter(),
+        buildFoodFilter(),
             buildFoodList(),
             buildShowCart(),
           ],
@@ -111,9 +111,9 @@ class _MyHomePageState extends State<Explore> {
         physics: BouncingScrollPhysics(),
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 4 / 6,
-          mainAxisSpacing: 12,
-          crossAxisSpacing: 16,
+          childAspectRatio: 4/5,
+          mainAxisSpacing: 4,
+          crossAxisSpacing: 4,
         ),
         itemBuilder: (context, index) {
           return FoodCard(foods[index]);
@@ -133,16 +133,47 @@ class _MyHomePageState extends State<Explore> {
         onPressed: () {
           Navigator.of(context).pop();
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => CheckOutPage()));
+              context, MaterialPageRoute(builder: (context) => OrderPage()));
         },
         padding: EdgeInsets.only(right: 12.0, left: 12),
         color: Color(0xff9bca5d),
-        child: Text('ດຳເນີນການສັ່ງຊື້',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'boonhome')),
+        child:Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+           Stack(
+              children: <Widget>[
+                IconButton(
+                    icon: Icon(
+                      Icons.shopping_cart,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => OrderPage()));
+                    }),
+                Positioned(
+                  right: 0,
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(shape: BoxShape.circle, color: yello),
+                    child: Text(
+                      '3',
+                      style: TextStyle(fontSize: 12, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(width: 10,),
+            Text('ດຳເນີນການສັ່ງຊື້',
+                style: TextStyle(
+                    color: secondColor,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: mainfont)),
+          ],
+        )
       ),
     );
   }

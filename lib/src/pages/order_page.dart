@@ -81,7 +81,7 @@ class _OrderPageState extends State<OrderPage>{
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("ຄ່າຂົນສົ່ງ",style: TextStyle(color: Colors.black,fontFamily: mainfont),),
+                Text("ຄ່າຂົນສົ່ງ",style: TextStyle(color: Colors.black,fontFamily: mainfont,fontSize: 16.0),),
                 Text("200 ₭",style: TextStyle(color: Colors.black),),
               ],
             ),

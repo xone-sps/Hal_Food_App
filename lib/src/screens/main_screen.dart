@@ -46,35 +46,35 @@ class _MainScreenState extends State<Home> {
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
-      appBar: currentTabIndex == 0
-          ? AppBar(
-              backgroundColor: mainColor,
-              brightness: Brightness.light,
-              leading: Padding(
-                padding: EdgeInsets.only(left: 12),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.menu,
-                    color: secondColor,
-                    size: 32.0,
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-              title: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "ສົ່ງທົ່ວປະເທດ",
-                      style: TextStyle(
-                          fontSize: 26.0,
-                          color: secondColor,
-                          fontFamily: mainfont),
-                    ),
-                  ]),
-              actions: <Widget>[ChekcoutButton()],
-            )
-          : null,
+//      appBar: currentTabIndex == 0
+//          ? AppBar(
+//              backgroundColor: mainColor,
+//              brightness: Brightness.light,
+//              leading: Padding(
+//                padding: EdgeInsets.only(left: 12),
+//                child: IconButton(
+//                  icon: Icon(
+//                    Icons.menu,
+//                    color: secondColor,
+//                    size: 32.0,
+//                  ),
+//                  onPressed: () {},
+//                ),
+//              ),
+//              title: Row(
+//                  mainAxisAlignment: MainAxisAlignment.center,
+//                  children: <Widget>[
+//                    Text(
+//                      "ສົ່ງທົ່ວປະເທດ",
+//                      style: TextStyle(
+//                          fontSize: 26.0,
+//                          color: secondColor,
+//                          fontFamily: mainfont),
+//                    ),
+//                  ]),
+//              actions: <Widget>[ChekcoutButton()],
+//            )
+//          : null,
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: mainColor,
         onTap: (int index) {

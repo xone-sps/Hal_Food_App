@@ -12,33 +12,75 @@ class _CategoryDetailState extends State<CategoryDetail> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-//      resizeToAvoidBottomPadding: false,
-      appBar: AppBar(
-          iconTheme: IconThemeData(
-              color: secondColor
-          ),
-        backgroundColor: Color(0xff9bca5d),
-        elevation: 0.0,
-        title: Text(
-          "ຊື່ໝວດໝູ່ເມນູ",
-          style: TextStyle(fontFamily: mainfont,color: Colors.white),
-        ),
-          actions: <Widget>[buildCart(),
-        SizedBox(width: 8,),]
-      ),
-      body: Container(
-         child: Column(
-           children: <Widget>[
-             buildImage(),
-             FoodItem(),
-             FoodItem(),
-             FoodItem(),
-           ],
-         ),
 
+    return Scaffold(
+      body: SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 250.0,
+                floating: false,
+                pinned: true,
+                elevation: 0.0,
+                iconTheme: IconThemeData(color: secondColor),
+                title: Text(
+                  "ລາຍລະອຽດໝວດໝູ່",
+                  style: TextStyle(color: Colors.white, fontFamily: mainfont),
+                ),
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Image.network(
+                    'https://img.wongnai.com/p/1600x0/2019/06/29/5050cd38141c40fb88945e091196eda2.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                actions: <Widget>[buildCart()],
+              )
+            ];
+          },
+          body: ListView(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  FoodItem(),
+                  FoodItem(),
+                  FoodItem(),
+                ],
+              )
+            ],
+          ),
+
+        ),
       ),
     );
+
+//    return Scaffold(
+////      resizeToAvoidBottomPadding: false,
+//      appBar: AppBar(
+//          iconTheme: IconThemeData(
+//              color: secondColor
+//          ),
+//        backgroundColor: mainColor,
+//        elevation: 0.0,
+//        title: Text(
+//          "ຊື່ໝວດໝູ່ເມນູ",
+//          style: TextStyle(fontFamily: mainfont,color: Colors.white),
+//        ),
+//          actions: <Widget>[buildCart(),
+//        SizedBox(width: 8,),]
+//      ),
+//      body: Container(
+//         child: Column(
+//           children: <Widget>[
+//             buildImage(),
+//             FoodItem(),
+//             FoodItem(),
+//             FoodItem(),
+//           ],
+//         ),
+//
+//      ),
+//    );
   }
   Widget buildImage(){
     return SafeArea(

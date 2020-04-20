@@ -21,9 +21,18 @@ class _FoodCardState extends State<FoodCard> {
     return Container(
       child: Column(
         children: <Widget>[
-          buildImage(),
-          buildTitle(),
-          buildPriceInfo(),
+       Card(
+         child: Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Column(
+             children: <Widget>[
+               buildImage(),
+               buildTitle(),
+               buildPriceInfo(),
+             ],
+           ),
+         ),
+       )
         ],
       ),
     );
@@ -64,33 +73,6 @@ class _FoodCardState extends State<FoodCard> {
     );
   }
 
-  Widget buildRating() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12.0, left: 4, right: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          RatingBar(
-            initialRating: food.rate,
-            direction: Axis.horizontal,
-            itemCount: 5,
-            itemSize: 14,
-            unratedColor: Colors.black,
-            itemPadding: EdgeInsets.only(right: 4.0),
-            ignoreGestures: true,
-            itemBuilder: (context, _) => Icon(
-              Icons.star,
-              color: mainColor,
-            ),
-            onRatingUpdate: (rating) {},
-          ),
-          Text('(${food.rateCount})'),
-        ],
-      ),
-    );
-  }
-
   Widget buildPriceInfo() {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0, left: 8, right: 8),
@@ -99,7 +81,7 @@ class _FoodCardState extends State<FoodCard> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-            '\$ ${food.price}',
+            '₭ ${food.price}',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
@@ -112,7 +94,7 @@ class _FoodCardState extends State<FoodCard> {
             child: InkWell(
               onTap: addItemToCard,
               customBorder: roundedRectangle,
-              child: Icon(Icons.add),
+              child: Icon(Icons.add,color: secondColor,),
             ),
           )
         ],
