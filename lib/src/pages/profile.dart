@@ -11,13 +11,13 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<Profile> {
-  final mainColor = (Color(0xff9bca5d));
   bool turnAppNotification = false;
   bool turnOnTracking = false;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: secondColor));
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: secondColor));
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -27,7 +27,10 @@ class _ProfilePageState extends State<Profile> {
             children: <Widget>[
               Text(
                 "Profile",
-                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
+                style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: mainfont),
               ),
               SizedBox(
                 height: 20.0,
@@ -59,14 +62,16 @@ class _ProfilePageState extends State<Profile> {
                       Text(
                         "Xone Sengphosy",
                         style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: mainfont),
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
                       Text(
                         "020 52202014",
-                        style: TextStyle(fontSize: 16.0,fontFamily: mainfont),
+                        style: TextStyle(fontSize: 16.0, fontFamily: mainfont),
                       ),
                       SizedBox(
                         height: 15.0,
@@ -74,8 +79,8 @@ class _ProfilePageState extends State<Profile> {
                       InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (BuildContext context) => EditProfile()
-                          ));
+                              builder: (BuildContext context) =>
+                                  EditProfile()));
                         },
                         child: Container(
                           width: 60.0,
@@ -86,7 +91,10 @@ class _ProfilePageState extends State<Profile> {
                           child: Center(
                               child: Text(
                             "Edit",
-                            style: TextStyle(fontSize: 16.0, color: mainColor,fontFamily: mainfont),
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: mainColor,
+                                fontFamily: mainfont),
                           )),
                         ),
                       )
@@ -99,7 +107,10 @@ class _ProfilePageState extends State<Profile> {
               ),
               Text(
                 "Account",
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: mainfont),
               ),
               SizedBox(
                 height: 10.0,
@@ -161,7 +172,10 @@ class _ProfilePageState extends State<Profile> {
               ),
               Text(
                 "Notification ",
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold,fontFamily: mainfont),
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: mainfont),
               ),
               SizedBox(
                 height: 20.0,
@@ -177,7 +191,8 @@ class _ProfilePageState extends State<Profile> {
                         children: <Widget>[
                           Text(
                             "App Notification",
-                            style: TextStyle(fontSize: 16.0,fontFamily: mainfont),
+                            style:
+                                TextStyle(fontSize: 16.0, fontFamily: mainfont),
                           ),
                           Switch(
                             activeColor: mainColor,
@@ -196,7 +211,8 @@ class _ProfilePageState extends State<Profile> {
                         children: <Widget>[
                           Text(
                             "Location tracking",
-                            style: TextStyle(fontSize: 16.0,fontFamily: mainfont),
+                            style:
+                                TextStyle(fontSize: 16.0, fontFamily: mainfont),
                           ),
                           Switch(
                             activeColor: mainColor,

@@ -72,7 +72,12 @@ flutter:
   fonts:
     - family: boonhome
       fonts:
-          - asset: fonts/BoonHome-400.ttf
+          - asset: assets/fonts/BoonHome-400.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

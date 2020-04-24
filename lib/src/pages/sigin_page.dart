@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'login.dart';
-import '../screens/main_screen.dart';
+import 'facebook_login.dart';
+import 'package:hal_food_app/src/pages/delivery_status.dart';
 import 'package:hal_food_app/src/constant/color.dart';
 import 'sign_up.dart';
 
@@ -30,13 +30,13 @@ class _SignInPageState extends State<SignInPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                height: 70.0,
-                width: 70.0,
+                height: 100.0,
+                width: 100.0,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/hal_food.png"),
@@ -84,7 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                       FbSignInButton(),
                       Divider(color: Color(0xff9bca5d),),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
                             "ຍັງບໍມີບັນຊີ ?",
@@ -105,7 +105,7 @@ class _SignInPageState extends State<SignInPage> {
                                     fontSize: 16.0,
                                     fontFamily: mainfont),
                               )),
-                          SizedBox(width: 80.0,),
+                          SizedBox(width: 40.0,),
                           GestureDetector(
                               onTap: () {
 //                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignUpPage()));
@@ -116,7 +116,8 @@ class _SignInPageState extends State<SignInPage> {
                                     fontSize: 16.0,
                                     color: Color(0xff9bca5d),
                                     fontFamily: mainfont),
-                              ))
+                              )
+                          )
                         ],
                       )
                     ],
@@ -222,7 +223,7 @@ class _SignInPageState extends State<SignInPage> {
           if (formkey.currentState.validate()) {
             formkey.currentState.save();
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (BuildContext context) => Home()));
+                MaterialPageRoute(builder: (BuildContext context) => Delivery_Status()));
           }
         },
         padding: EdgeInsets.only(right: 12.0, left: 12, top: 16, bottom: 16),

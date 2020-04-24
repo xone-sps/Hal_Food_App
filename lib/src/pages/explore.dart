@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hal_food_app/src/pages/order_page.dart';
+import 'package:provider/provider.dart';
 import '../constant/color.dart';
 import '../models/cart_model.dart';
 import '../models/food_model.dart';
 import '../widgets/cart_buttom_sheet.dart';
 import '../widgets/food_card.dart';
-import 'package:provider/provider.dart';
+
 
 class Explore extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _MyHomePageState extends State<Explore> {
     showModalBottomSheet(
       shape: roundedRectangle32,
       context: context,
-      builder: (context) => CartBottomSheet(),
+      builder: (context) => CartBottomSheet( ),
     );
   }
 
@@ -27,8 +28,12 @@ class _MyHomePageState extends State<Explore> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      appBar: AppBar(
+       iconTheme: IconThemeData(color: secondColor),
+        title: Text('All food',style: TextStyle(color: secondColor),),
+      ),
       body: Container(
-        margin: EdgeInsets.only(top: 40, bottom: 10,left: 8,right: 8),
+        margin: EdgeInsets.only(top: 10, bottom: 10,left: 6,right: 6),
         child: Column(
           children: <Widget>[
 //            buildAppBar(),
@@ -111,9 +116,9 @@ class _MyHomePageState extends State<Explore> {
         physics: BouncingScrollPhysics(),
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 4/5,
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,
+          childAspectRatio: 0.755,
+          mainAxisSpacing: 5,
+          crossAxisSpacing: 5,
         ),
         itemBuilder: (context, index) {
           return FoodCard(foods[index]);

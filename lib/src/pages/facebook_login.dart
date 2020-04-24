@@ -27,100 +27,9 @@ class _SignUpPageState extends State<Login> {
           style: TextStyle(fontFamily: 'boonhome', fontWeight: FontWeight.bold),
         ),
       ),
-//      body: Center(
-//        child: SingleChildScrollView(
-//          padding: const EdgeInsets.only(right:8.0,left: 8.0,top: 20.0,bottom: 8.0),
-//          child:Center(
-//            child: Column(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              children: <Widget>[
-//                Container(
-//                  height: 70.0,
-//                  width: 70.0,
-//                  decoration: BoxDecoration(
-//                      image: DecorationImage(
-//                        image: AssetImage("assets/images/hal_food.png"),
-//                        fit: BoxFit.cover,
-//                      ),
-//                      borderRadius: BorderRadius.circular(8.0),
-//                      boxShadow: [
-//                        BoxShadow(
-//                            color: Color(0xff9bca5d),
-//                            blurRadius: 1.0,
-//                            offset: Offset(1.0, 1.0))
-//                      ]),
-//                ),
-//                SizedBox(
-//                  height: 4.0,
-//                ),
-//                Text(
-//                  "HAL Food",
-//                  style: TextStyle(
-//                      fontSize: 22.0,
-//                      fontWeight: FontWeight.bold,
-//                      fontFamily: mainfont),
-//                ),
-//                Text(
-//                  "ເພາະທຸກຄຳມີຄວາມໝາຍ",
-//                  style: TextStyle(fontSize: 14.0, fontFamily: mainfont),
-//                ),
-////            SizedBox(height: 10.0),
-//                Divider(color: Color(0xff9bca5d),),
-////              Card(
-//                Padding(
-//                  padding: const EdgeInsets.only(
-//                      top: 20.0, bottom: 20.0, right: 20.0, left: 20.0),
-//                  child: Form(
-//                    key: formkey,
-//                    child: Column(
-//                      children: <Widget>[
-//                        UserNameTextFiled(),
-//                        SizedBox(height: 15.0),
-//                        PhoneTextFiled(),
-//                        SizedBox(height: 15.0),
-//                        EmailTextFiled(),
-//                        SizedBox(height: 15.0),
-//                        PasswordTextFiled(),
-//                        SizedBox(height: 15.0),
-//                        PasswordConfirmTextFiled(),
-//                        SizedBox(height: 16.0),
-//                        SignInButton(),
-//                        Divider(color: Color(0xff9bca5d),),
-//                        Row(
-//                          children: <Widget>[
-//                            Text("ມີບັນຊີແລ້ວ ?"),
-//                            SizedBox(width: 10.0),
-//                            InkWell(
-//                                onTap: () {
-//                                  Navigator.of(context).push(MaterialPageRoute(
-//                                      builder: (BuildContext context) =>
-//                                          SignInPage()));
-//                                },
-//                                child: Text(
-//                                  "ເຂົ້າສູ່ລະບົບ",
-//                                  style: TextStyle(
-//                                      fontWeight: FontWeight.bold,
-//                                      color: Color(0xff9bca5d),
-//                                      fontSize: 16.0),
-//                                )),
-//                          ],
-//                        )
-//                      ],
-//                    ),
-//                  ),
-//                ),
-////              ),
-//              ],
-//            ),
-//          ),
-////        padding: EdgeInsets.only(right: 10.0, left: 10.0, top: 20.0),
-//
-//        ),
-//      ),
-
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(right:8.0,left: 8.0,top: 20.0,bottom: 8.0),
+          padding: const EdgeInsets.only(right:18.0,left: 18.0,top: 20.0,bottom: 8.0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -143,56 +52,7 @@ class _SignUpPageState extends State<Login> {
                       border: OutlineInputBorder()
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  initialValue: '020 52202014',
-                  decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      border: OutlineInputBorder()
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  initialValue: '020 52202014',
-                  decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      border: OutlineInputBorder()
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  initialValue: '020 52202014',
-                  decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      border: OutlineInputBorder()
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  initialValue: '020 52202014',
-                  decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      border: OutlineInputBorder()
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  initialValue: '020 52202014',
-                  decoration: InputDecoration(
-                      labelText: 'Phone number',
-                      border: OutlineInputBorder()
-                  ),
-                ),
+
                 SizedBox(
                   height: 30,
                 ),

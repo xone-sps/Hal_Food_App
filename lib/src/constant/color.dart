@@ -24,3 +24,4 @@ final mainColor = (Color( 0xff9bca5d ));
 final black = (Color( 0xff000000 ));
 final secondColor = (Color( 0xffffffff ));
 int currentTabIndex = 0;
+final fillColorGrey = (Color (0xFFf1f2f6));

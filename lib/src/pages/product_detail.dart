@@ -37,7 +37,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             children: <Widget>[
               Stack(
                 children: <Widget>[
-                  Slider(),
+//                  Slider(),
 //                  Container(
 //                    height: 275.0,
 //                    decoration: BoxDecoration(
@@ -215,42 +215,41 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           width: MediaQuery.of(context).size.width,
           color: Colors.white,
           child:
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(width: 10.0),
-                Container(
-                  height: 50.0,
-                  width: 50.0,
-                  color: Colors.white,
-                  child: Icon(
-                    Icons.shopping_cart,
-                    color: Colors.grey,
-                  ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            SizedBox(width: 10.0),
+            Container(
+              height: 50.0,
+              width: 50.0,
+              color: Colors.white,
+              child: Icon(
+                Icons.shopping_cart,
+                color: Colors.grey,
+              ),
+            ),
+            Container(
+              height: 50.0,
+              width: 50.0,
+              color: Colors.white,
+              child: Icon(
+                Icons.account_box,
+                color: Colors.grey,
+              ),
+            ),
+            Container(
+              color: Colors.yellow[700],
+              width: MediaQuery.of(context).size.width - 150.0,
+              child: Center(
+                child: Text(
+                  'Add to Cart',
+                  style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 19.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
-                Container(
-                  height: 50.0,
-                  width: 50.0,
-                  color: Colors.white,
-                  child: Icon(
-                    Icons.account_box,
-                    color: Colors.grey,
-                  ),
-                ),
-                Container(
-                  color: Colors.yellow[700],
-                  width: MediaQuery.of(context).size.width - 150.0,
-                  child: Center(
-                    child: Text(
-                      'Add to Cart',
-                      style: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontSize: 19.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ]),
+              ),
+            ),
+          ]),
         ),
       ),
     );

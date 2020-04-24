@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hal_food_app/main.dart';
 import 'package:hal_food_app/src/pages/explore.dart';
 import '../pages/home.dart';
 import '../pages/order_page.dart';
@@ -41,11 +40,13 @@ class _MainScreenState extends State<Home> {
   Widget build(BuildContext context) {
     // TODO: implement build
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: mainColor)); //set color status bar
+        SystemUiOverlayStyle(statusBarColor: secondColor));
+    //set color status bar
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
+      backgroundColor: secondColor,
 //      appBar: currentTabIndex == 0
 //          ? AppBar(
 //              backgroundColor: mainColor,
@@ -86,14 +87,14 @@ class _MainScreenState extends State<Home> {
         currentIndex: currentTabIndex,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("ໜ້າຫຼັກ",style: TextStyle(fontSize: 18),)),
 //          BottomNavigationBarItem(icon: Icon(Icons.explore), title: Text("Explore")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), title: Text("Cart")),
+              icon: Icon(Icons.shopping_cart), title: Text("ກະຕ່າສິນຄ້າ",style: TextStyle(fontSize: 18,))),
           BottomNavigationBarItem(
-              icon: Icon(Icons.contact_mail), title: Text("Contact")),
+              icon: Icon(Icons.contact_mail), title: Text("ຕິດຕໍ່ພວກເຮົາ",style: TextStyle(fontSize: 18))),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person), title: Text("Profile")),
+              icon: Icon(Icons.person), title: Text("ບັນຊີ",style: TextStyle(fontSize: 18))),
         ],
       ),
       body: currentPage,
